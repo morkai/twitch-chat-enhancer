@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>Twitch Chat Enhancer Options</title>
+  <style>
+    body {
+      font: 1em Arial, sans-serif;
+    }
+    h1 {
+      background-image: url(icon128.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      padding-left: 1.5em;
+    }
+    p {
+      margin-bottom: 1em;
+    }
+    img {
+      vertical-align: middle;
+    }
+    input {
+      font-size: 1em;
+      vertical-align: baseline;
+    }
+    .info {
+      font-size: .8em;
+      color: grey;
+    }
+    .limit {
+      width: 2.4em;
+      padding-left: .25em;
+    }
+    .color {
+      background-color: #D9D9D9;
+      font-weight: bold;
+      font-size: 12px;
+      padding: 0 .5em;
+    }
+    #lengthFilterValue,
+    #lineBuffer {
+      width: 3em;
+    }
+    #reFilterValue {
+      font-family: Consolas, monospace;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<h1>Twitch Chat Enhancer</h1>
+<h2>Options</h2>
+<p>
+  <input id=colorsState type=checkbox value=1>
+  <label for=colorsState>
+    Change <span class="color" style="color: #9ACD32">Username1</span>
+    and <span class="color" style="color: #00FF7F">Username2</span>
+    to <span class="color" style="color: #005500">Username1</span>
+    and <span class="color" style="color: #008800">Username2</span>.
+  </label>
+</p>
+<p>
+  <input id=scrollState type=checkbox value=1>
+  <label for=scrollState>Disable auto-scrolling of the chat area when not locked to the bottom.</label>
+  <span class="info">Messages are removed only if the chat's scrollbar is all the way down.</span>
+</p>
+<p>
+  <input type=checkbox value=1 disabled checked>
+  <label for=lineBuffer>
+    Limit message history to
+    <input id=lineBuffer class="limit" type=number value=150 min=1 max=999>
+    messages.
+  </label>
+  <span class="info">After reaching the limit, messages are removed.</span>
+</p>
+<p>
+  <input id=emoState type=checkbox value=1>
+  <label for=emoState>Disable emoticons.</label>
+  <span class="info">Kappa will stay Kappa instead of <img src="kappa.png" width=25 height=28>.</span>
+</p>
+<p>
+  <input id=emoFilterState type=checkbox value=1>
+  <label for=emoFilterState>Hide empty messages.</label>
+  <span class="info">Empty message = no text, only emoticons.</span>
+</p>
+<p>
+  <input id=emoLimiterState type=checkbox value=1>
+  <label for=emoLimiterState>Hide messages with more than</label>
+  <input id=emoLimiterValue class="limit" type=number value=4 min=1 max=10>
+  <label for=emoLimiterValue>emoticons.</label>
+</p>
+<p>
+  <input id=asciiLimiterState type=checkbox value=1>
+  <label for=asciiLimiterState>Hide messages with more than</label>
+  <input id=asciiLimiterValue class="limit" type=number value=3 min=1 max=10>
+  <label for=asciiLimiterValue>non-ASCII characters.</label>
+  <span class="info">
+    See <a href="http://www.ascii-code.com/">ASCII printable characters (character code 32-127)</a>
+    for a list of the allowed characters.
+  </span>
+</p>
+<p>
+  <input id=lengthFilterState type=checkbox value=1>
+  <label for=lengthFilterState>Hide messages longer than</label>
+  <input id=lengthFilterValue class="limit" type=number value=250 min=100 max=999>
+  <label for=lengthFilterValue>characters.</label>
+</p>
+<p id=reFilterStateOption>
+  <input id=reFilterState type=checkbox value=1>
+  <label for=reFilterState>Hide messages matching the following regular expressions:</label>
+  <textarea id=reFilterValue rows=5 cols=60></textarea>
+  <span class="info">
+    One per line. Case-insensitive.
+    See a <a href="http://www.regular-expressions.info/tutorial.html">Regular Expressions Tutorial</a>.
+  </span>
+</p>
+<!--
+<p>
+  <input id=statsState type=checkbox value=1 disabled>
+  <label for=statsState>Gather /stats.</label>
+</p>
+//-->
+<script src="options.js"></script>
+</body>
+</html>

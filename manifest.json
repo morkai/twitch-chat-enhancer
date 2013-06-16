@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Twitch Chat Enhancer",
+  "version": "0.0.1",
+  "description": "Enhances your Twitch chat experience.",
+  "homepage_url": "https://github.com/morkai/twitch-chat-enhancer",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "http://*.twitch.tv/*"
+  ],
+  "background": {
+    "scripts": ["bg.js"],
+    "persistent": false
+  },
+  "content_scripts": [{
+    "matches": ["http://*.twitch.tv/*"],
+    "css": ["cs.css"],
+    "js": ["cs.js"]
+  }],
+  "options_page": "options.html"
+}
