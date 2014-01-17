@@ -2,7 +2,7 @@
 
 function twitchChatEnhancer(options)
 {
-  if (self !== top || typeof CurrentChat === 'undefined')
+  if (self !== top || !CurrentChat)
   {
     return;
   }
