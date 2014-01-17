@@ -2,9 +2,16 @@
 
 function twitchChatEnhancer(options)
 {
-  if (self !== top || !CurrentChat)
+  if (self !== top || typeof CurrentChat === 'undefined')
   {
     return;
+  }
+
+  if (CurrentChat === null)
+  {
+    console.log("[TCE] CurrentChat is not initialized yet, retrying in 1s...");
+
+    return setTimeout(twitchChatEnhancer.bind(null, options), 1000);
   }
 
   if (options.lineBuffer)
@@ -26,7 +33,7 @@ function twitchChatEnhancer(options)
   var EMOTICON_RE = /"emo\-[0-9]+ emoticon"/g;
   var EMPTY_MESSAGE_PATTERN = 'chat_line"></';
 
-  console.log("Twitch Chat Enhancer taking over Kappa");
+  console.log("Twitch Chat Enhancer is taking over the Kappa!");
 
   var get_color_for_user = CurrentChat.get_color_for_user;
   var emoticonize = CurrentChat.emoticonize;
