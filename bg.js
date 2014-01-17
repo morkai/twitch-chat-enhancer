@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
-  if (request == "getOptions")
+  if (request == 'getOptions')
   {
     sendResponse(localStorage['tce'] || '{}');
   }

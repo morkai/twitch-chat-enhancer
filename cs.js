@@ -149,7 +149,7 @@ function contentEval(source, options)
   }
 
   var script = document.createElement('script');
-  script.setAttribute("type", "application/javascript");
+  script.setAttribute('type', 'application/javascript');
   script.textContent = source;
 
   document.body.appendChild(script);
