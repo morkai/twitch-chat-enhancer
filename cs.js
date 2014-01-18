@@ -1,15 +1,20 @@
 'use strict';
 
-function twitchChatEnhancer(options)
+function twitchChatEnhancer(options, first)
 {
-  if (self !== top || typeof CurrentChat === 'undefined')
+  if (self !== top)
   {
+    console.log("[TCE] self !== top");
+
     return;
   }
 
-  if (CurrentChat === null)
+  if (typeof CurrentChat === 'undefined' || CurrentChat === null)
   {
-    console.log("[TCE] CurrentChat is not initialized yet, retrying in 1s...");
+    if (first)
+    {
+      console.log("[TCE] CurrentChat is not initialized yet, retrying in 1s...");
+    }
 
     return setTimeout(twitchChatEnhancer.bind(null, options), 1000);
   }
@@ -152,7 +157,7 @@ function contentEval(source, options)
 {
   if (typeof source === 'function')
   {
-    source = '(' + source + ')(' + options + ');';
+    source = '(' + source + ')(' + options + ', true);';
   }
 
   var script = document.createElement('script');
