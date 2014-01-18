@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Twitch Chat Enhancer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Enhances your Twitch chat experience.",
   "homepage_url": "https://github.com/morkai/twitch-chat-enhancer",
   "icons": {
