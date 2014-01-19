@@ -40,8 +40,6 @@ function twitchChatEnhancer(options, first)
 
   console.log("Twitch Chat Enhancer is taking over the Kappa!");
 
-  var get_color_for_user = CurrentChat.get_color_for_user;
-  var emoticonize = CurrentChat.emoticonize;
   var insert_chat_line = CurrentChat.insert_chat_line;
   var insert_with_lock = CurrentChat.insert_with_lock;
   var set_currently_scrolling = CurrentChat.set_currently_scrolling;
@@ -54,6 +52,11 @@ function twitchChatEnhancer(options, first)
 
   if (options.scrollState)
   {
+    CurrentChat.chat_lines_div().addEventListener('scroll', function()
+    {
+      CurrentChat.set_currently_scrolling();
+    });
+
     CurrentChat.set_currently_scrolling = function()
     {
       set_currently_scrolling.apply(this, arguments);
